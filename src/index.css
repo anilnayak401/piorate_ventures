@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --color-dark: #161615;
+  --color-cream: #F9F9F8;
+  --color-border: #E5E5E3;
+}
+
+body {
+  background-color: #ffffff;
+  color: #161615;
+  font-family: "Figtree", sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Door Dennis Signature Typography */
+.font-figtree {
+  font-family: "Figtree", sans-serif;
+}
+
+.font-serif-italic {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Huge Headline Styling */
+.hugeTitle {
+  font-family: "Figtree", sans-serif;
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #161615;
+}
+
+.hugeTitle em, .hugeTitle i {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Door Dennis Button Styling */
+.dd-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #161615;
+  color: #ffffff;
+  padding: 0.85rem 1.6rem;
+  border-radius: 9999px;
+  font-family: "Figtree", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dd-button:hover {
+  background-color: #2b2a29;
+}
+
+.dd-button .arrows-box {
+  width: 1.25rem;
+  height: 1.25rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dd-button .arrows-box svg {
+  position: absolute;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dd-button .arrows-box svg:nth-child(1) {
+  transform: translate(0, 0);
+}
+
+.dd-button .arrows-box svg:nth-child(2) {
+  transform: translate(-100%, 100%);
+}
+
+.dd-button:hover .arrows-box svg:nth-child(1) {
+  transform: translate(100%, -100%);
+}
+
+.dd-button:hover .arrows-box svg:nth-child(2) {
+  transform: translate(0, 0);
+}
+
+.dd-button .label-container {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  height: 1.4em;
+  line-height: 1.4em;
+}
+
+.dd-button .label-slide {
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dd-button .label-slide:nth-child(2) {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.dd-button:hover .label-slide:nth-child(1) {
+  transform: translateY(-100%);
+}
+
+.dd-button:hover .label-slide:nth-child(2) {
+  transform: translateY(-100%);
+}
+
+/* Secondary Ghost / Text Link */
+.dd-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Figtree", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #161615;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.dd-text-link:hover {
+  opacity: 0.7;
+}
+
+/* Background Hairline Grid Lines (Hidden) */
+.vertical-lines-grid {
+  display: none !important;
+}
+
+/* Infinite Scrolling Marquee */
+@keyframes ddMarquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-dd-marquee {
+  display: flex;
+  width: max-content;
+  animation: ddMarquee 35s linear infinite;
+}
+
+.animate-dd-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Image Mask Reveal & Zoom Hover */
+.image-mask-container {
+  position: relative;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.image-mask-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-mask-container:hover img {
+  transform: scale(1.05);
+}
+
+/* 8-Tile Color Palette Divider Bar */
+.color-divider-bar {
+  display: flex;
+  width: 100%;
+  height: 4px;
+}
+
+.color-divider-bar .color-tile {
+  flex: 1;
+  height: 100%;
+}
+
+/* Pulsing Green Dot */
+.pulsing-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+/* Minimalist Hairline Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 0px;
+}
+
+/* Seamless 3D Faceted Surface Background Pattern */
+.bg-faceted-pattern {
+  background-image: url('/bg-pattern.png');
+  background-repeat: repeat;
+  background-size: 360px 360px;
+}
